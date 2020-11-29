@@ -1,0 +1,842 @@
+@charset "utf-8";
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 70%; 
+  margin: 0 auto;
+}
+/*=================================
+  Header styling starts here
+=================================*/
+
+@font-face {
+  src: url('../vendor/NerkoOne-Regular.ttf');
+  font-family: nerko;
+}
+
+html {
+  font-size: 62.5%;
+  --black: #000000;
+  --green: #39ff14;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background-color: #f3f31a;
+}
+
+header {
+  background-color: var(--black);
+}
+
+header .wrapper {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu_btn {
+  width: 3rem;
+  height: 3rem;
+  padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: all .5s ease;
+}
+
+.menu_btn_hamburger {
+  width: 2.5rem;
+  height: .5rem;
+  border-radius: .2rem;
+  background-color: var(--green);
+  text-indent: -999rem;
+  transition: all .5s ease-in-out;
+}
+
+.menu_btn_hamburger::before, .menu_btn_hamburger::after {
+  width: 2.5rem;
+  height: .5rem;
+  border-radius: .2rem;
+  position: absolute;
+  left: 50%;
+  background-color: var(--green);
+  content: '';
+  transition: all .5s ease-in-out;
+}
+
+.menu_btn_hamburger::before {
+  transform: translate(-50%, -.8rem);
+}
+
+.menu_btn_hamburger::after {
+  transform: translate(-50%, .8rem);
+}
+
+.menu_btn.open .menu_btn_hamburger {
+  background: transparent;
+  transform: translateX(-1rem);
+}
+
+.menu_btn.open .menu_btn_hamburger::before {
+  transform: rotate(45deg) translate(.1rem, -.1rem);
+}
+
+.menu_btn.open .menu_btn_hamburger::after {
+  transform: rotate(-45deg) translate(.1rem, .1rem);
+}
+
+.epl_logo {
+  width: 8rem;
+  height: 8rem;
+}
+
+.navigation {
+  margin-left: 5%;
+}
+
+.navigation .rest a, .navigation .current a {
+  padding: .5rem 1rem;
+  border: .2rem solid transparent;
+  border-radius: 3rem;
+  display: flex;
+  color: var(--green);
+  font-family: nerko, "san-serif";
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.navigation .current a {
+  border: .2rem solid var(--green);
+}
+
+.navigation a:hover {
+  border: .2rem solid var(--green);
+}
+
+.humburger {
+  display: none;
+}
+
+.navigation li {
+  margin-right: 3rem;
+}
+
+.logout_container button {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: var(--green);
+  font-family: nerko, "san-sarif";
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1 {
+  transition: all .5s ease;
+}
+
+h1:hover {
+  transform: scale(1.1);
+}
+
+/*=================================
+  Header styling ends here
+=================================*/  
+
+/*=================================
+  main styling starts here
+=================================*/
+
+/* Styling for index(Login) Page (End)*/
+
+.authentication {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #363434;
+}
+
+.authentication .wrapper {
+  width: 40%;
+  height: 30rem;
+  border: .1rem solid var(--black);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: var(--black);
+  box-shadow: 0 0 1rem var(--black), 0 0 4rem var(--black), 0 0 8rem var(--black);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.authentication h2 {
+  margin-top: 9%;
+  color: var(--green);
+  font-size: 3rem;
+}
+
+.epl_logo_login {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.error_msg {
+  display: none;
+  color: #ff6347;
+}
+
+.error_msg_display {
+  display: block;
+}
+
+.submit {
+  margin-top: 2rem;
+}
+
+.submit input {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 4rem;
+  background-color: var(--green);
+  font-family: nerko, "sans-serif";
+  font-size: 1.5rem;
+}
+
+.user_name, .password {
+  padding: .5rem 0;
+}
+
+.user_name input, .password input {
+  width: 70%;
+  padding: .8rem;
+  border: .2rem solid transparent;
+  border-radius: 5rem;
+  margin: 0 auto;
+  background-color: #363434;
+  color: #f0ffff;
+  text-align: center;
+}
+
+.user_name input::placeholder, .password input::placeholder {
+  text-align: center;
+}
+
+.user_name input:focus, .password input:focus, .user_name input:hover, .password input:hover {
+  border: .2rem solid var(--green);
+}
+
+form input:focus {
+  outline: none;
+}
+
+.submit input:hover, .submit input:focus, .logout_container button:hover, .show_more:hover, .show_more:focus {
+  box-shadow: 0 0 1rem var(--green), 0 0 4rem var(--green);
+}
+
+/* Styling for index(Login) Page (End)*/
+
+/* Styling for Home Page (Start) */
+
+h2 {
+  padding-bottom: 1rem;
+  margin: 2% 0;
+  position: relative;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2::before {
+  width: 6rem;
+  height: .4rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--green);
+  content: "";
+}
+
+.history h3 {
+  margin-bottom: 2%;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.major_record {
+  display: flex;
+  justify-content: space-between;
+}
+
+.major_record .record {
+  width: 28%;
+}
+
+.record h4 {
+  height: 6rem;
+  color: #ff6347;
+  font-family: nerko, "san-sarif";
+  font-size: 2rem;
+  text-align: center;
+}
+
+.record div {
+  padding: 1rem 0;
+  border-top: .3rem solid var(--green);
+  border-bottom: .3rem solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highest_till_now {
+  color: #ff6347;
+  font-family: nerko, "sans-serif";
+  font-size: 4rem;
+}
+
+.record_holder {
+  font-family: nerko, "sans-serif";
+  font-size: 1.5rem;
+}
+
+.another_records {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.another_records h5 {
+  color: #ff6347;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.another_records ol {
+  padding: 1rem 0 0 1.5rem;
+  border-top: .3rem solid var(--green);
+  border-bottom: .3rem solid var(--green);
+  margin-top: 1rem;
+}
+
+.another_records ol li {
+  margin-bottom: 1rem;
+  display: list-item;
+  font-size: 1.1rem;
+  font-weight: 700;
+  list-style-type: decimal;
+  text-transform: capitalize;
+}
+
+.about {
+  margin: 10rem 0;
+}
+
+.description span {
+  margin-bottom: 2rem;
+  display: block;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.description span::first-letter {
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* Styling for Home Page (End) */
+
+/* Styling for Club List Page (Start) */
+
+select:focus {
+  outline: none;
+}
+
+.club_list .container, .match_details .container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.club_list footer, .match_details footer {
+  margin-top: auto;
+}
+
+.show_more {
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+  border: none;
+  display: none;
+  background-color: var(--green);
+  font-family: nerko, "san-serif";
+}
+
+.show_more_display {
+  display: block;
+}
+
+.show_more_display:focus {
+  outline: none;
+}
+
+.team_performance {
+  display: none;
+}
+
+.team_performance_display {
+  display: block;
+}
+
+.team_result form, .match_rounds form {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+select {
+  padding: .5rem;
+  background-color: var(--black);
+  color: var(--green);
+  font-family: nerko, "san-serif";
+}
+
+.team_performance_display, .list_of_matches_display {
+  margin: 3% 0;
+}
+
+.club_list_teams, .match_details_teams {
+  padding: 1% 0;
+  border-bottom: .2rem solid var(--green);
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.club_list_teams li, .match_details_teams li {
+  width: 25%;
+  font-family: nerko, "san-serif";
+  font-size: 1.5rem;
+}
+
+.team_result, .match_rounds {
+  padding-bottom: 3%;
+}
+
+/* Styling for Club List Page (End) */
+
+/* Styling for Match Details Page (Start) */
+
+.list_of_matches {
+  display: none;
+}
+
+.list_of_matches_display {
+  display: block;
+}
+
+.team_name {
+  cursor: pointer;
+}
+
+.team_name:hover {
+  text-decoration: underline;
+}
+
+/* Styling for Match Details Page (End) */
+
+/*=================================
+  main styling ends here
+=================================*/
+
+/*=================================
+  footer styling starts here
+=================================*/ 
+
+.footer_firstlayer {
+  background-color: var(--black);
+}
+
+.footer_firstlayer .wrapper {
+  padding: 1.5% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.epl_logo_footer {
+  width: 15rem;
+  height: 15rem;
+}
+
+.navigation_footer li {
+  margin: 2% 0;
+  display: block;
+}
+
+.navigation_footer a {
+  color: var(--green);
+  font-family: nerko, "san-sariff";
+  font-size: 2rem;
+  text-transform: uppercase;
+  transition: all .5s ease;
+}
+
+.navigation_footer .current a {
+  text-decoration: underline;
+}
+
+.navigation_footer a:hover {
+  transform: scale(1.2);
+}
+
+.social_media_handles li {
+  margin-right: 1.5rem;
+}
+
+.social_media_handles li a {
+  font-size: 2rem;
+  text-indent: -9999rem;
+}
+
+.facebook::before, .twitter::before, .instagram::before, .youtube::before {
+  border: .1rem solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  float: right;
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 900;
+  text-indent: 0;
+  vertical-align: middle;
+  transition: all .5s ease;
+}
+
+.facebook:hover::before, .twitter:hover::before, .instagram:hover::before, .youtube:hover::before {
+  color: #f0ffff;
+  background-color: var(--green);
+  transform: scale(1.2);
+}
+
+.facebook::before {
+  padding: .5rem 1rem;
+  content: "\f39e";
+}
+
+.twitter::before {
+  padding: .5rem .6rem;
+  content: "\f099";
+}
+
+.instagram::before {
+  padding: .5rem .9rem;
+  content: "\f16d";
+}
+
+.youtube::before {
+  padding: .5rem .6rem;
+  content: "\f167";
+}
+
+.footer_secondlayer {
+  padding: 1% 0;
+  margin-top: .1rem;
+  background-color: var(--black);
+  color: var(--green);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+ /*=================================
+  footer styling ends here
+=================================*/ 
+
+/*media query starts*/
+/*media query for 995px starts here*/
+@media only screen and (max-width: 995px) {
+
+  html {
+    font-size: 50%;
+  }
+
+}
+
+/*media query for 680px starts here*/
+@media only screen and (max-width: 680px) {
+
+  .authentication .wrapper {
+    width: 80%;
+  }
+
+  .overflow_hide {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  header .wrapper {
+    padding: 2rem 0 3rem
+  }
+
+  .humburger {
+    display: block;
+  }
+
+  .navigation {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    position: fixed;
+    z-index: 1;
+    top: 10rem;
+    left: 0;
+    background-color: var(--black);
+    transition: all .5s ease;
+    transform: translateX(100%);
+  }
+
+  .nav_open {
+    transform: translateX(0);
+  }
+
+  .navigation ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .navigation li {
+    margin: 3rem 0;
+    font-size: 2.5rem;
+  }
+
+  .navigation .rest a, .navigation .current a {
+    padding: 0;
+    border: none;
+  }
+
+  .navigation .current a {
+    border: none;
+  }
+
+  .logout_container button {
+    padding: 0;
+    background-color: unset;
+    color: var(--green);
+  }
+
+  .major_record {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .record h4 {
+    height: auto;
+  }
+
+  .major_record .record {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  .another_records {
+    flex-wrap: wrap;
+  }
+
+  .another_records > div {
+    width: 100%;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .another_records h5 {
+    font-size: 1.7rem;
+  }
+
+  .another_records ol li {
+    font-size: 1.3rem;
+    list-style-position: inside
+  }
+
+  .description span {
+    font-size: 1.5rem;
+  }
+
+  .club_list_teams li:last-child, .match_details_teams li:last-child  {
+    display: none;
+  }
+
+  .footer_firstlayer .wrapper {
+    flex-direction: column;
+  }
+
+  .navigation_footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navigation_footer li {
+    margin: 2.5rem 0;
+  }
+
+  .navigation_footer .current a {
+    text-decoration: unset;
+  }
+
+  .social_media_handles {
+    margin: 3rem 0;
+  }
+
+  .social_media_handles li a {
+    font-size: 2.5rem;
+  }
+
+  .footer_secondlayer {
+    padding: 3rem 0;
+  }
+
+  /*Disable All Hover Effect (Start)*/
+
+  .submit input:hover, .submit input:focus, .logout_container button:hover, .show_more:hover, .show_more:focus {
+    box-shadow: unset;
+  }
+
+  .navigation a:hover {
+    border: none;
+  }
+
+  h1:hover {
+    transform: unset;
+  }
+
+  .team_name:hover {
+    text-decoration: unset;
+  }
+
+  .navigation_footer a:hover {
+    transform: unset;
+  }
+
+  .facebook:hover::before, .twitter:hover::before, .instagram:hover::before, .youtube:hover::before {
+    color: unset;
+    background-color: unset;
+    transform: unset;
+  }
+  
+
+  /*Disable All Hover Effect (End)*/
+
+}

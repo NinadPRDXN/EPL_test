@@ -1,0 +1,62 @@
+<!doctype html>
+
+<!-- If multi-language site, reconsider usage of html lang declaration here. -->
+<html lang="en"> 
+
+<head>
+ 
+  <meta charset="utf-8">
+
+  <title>EPL Football Info</title>
+  
+  <!-- 120 word description for SEO purposes goes here. Note: Usage of lang tag. -->
+  <meta name="description" lang="en" content="The Premier League, often referred to outside England as the English Premier League or the EPL, is the top level of the English football league system. Contested by 20 clubs, it operates on a system of promotion and relegation with the English Football League">
+  
+  <!-- Keywords to help with SEO go here. Note: Usage of lang tag.  -->
+  <meta name="keywords" lang="en" content="epl, football league">
+  
+  <!-- This meta tag is used for mobile device to display the page without any zooming,
+       so how much the device is able to fit on the screen is what's shown initially. 
+       Remove comments from this tag, when you want to apply media queries to the website. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!--font-awesome link for icons-->
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css">
+
+  <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+
+</head>
+
+<body class="login">
+  <!--container start-->
+  <div class="container">
+    <!-- Authentication Form Start -->
+    <section class="authentication">
+      <div class="wrapper">
+        <h2>login</h2>
+        <img src="assets/image/logo.png" class="epl_logo_login" alt="EPL">
+        <form class="login_form" action="home.html">
+          <span class="error_msg">Message</span>
+          <div class="user_name">
+            <input name="username" placeholder="Username" type="text">
+          </div>
+          <div class="password">
+            <input name="pass" placeholder="Password" type="password">
+          </div>
+          <div class="submit">
+            <input type="submit" value="Login">
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Authentication Form End -->
+  </div>
+  <!--container end-->
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

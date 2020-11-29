@@ -1,0 +1,148 @@
+<!doctype html>
+
+<!-- If multi-language site, reconsider usage of html lang declaration here. -->
+<html lang="en"> 
+
+<head>
+ 
+  <meta charset="utf-8">
+
+  <title>EPL Football Info</title>
+  
+  <!-- 120 word description for SEO purposes goes here. Note: Usage of lang tag. -->
+  <meta name="description" lang="en" content="The Premier League, often referred to outside England as the English Premier League or the EPL, is the top level of the English football league system. Contested by 20 clubs, it operates on a system of promotion and relegation with the English Football League">
+  
+  <!-- Keywords to help with SEO go here. Note: Usage of lang tag.  -->
+  <meta name="keywords" lang="en" content="epl, football league">
+  
+  <!-- This meta tag is used for mobile device to display the page without any zooming,
+       so how much the device is able to fit on the screen is what's shown initially. 
+       Remove comments from this tag, when you want to apply media queries to the website. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!--font-awesome link for icons-->
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css">
+
+  <!-- Default style-sheet is for 'media' type screen (color computer display).  -->
+  <link rel="stylesheet" media="screen" href="assets/css/style.css" >
+
+</head>
+
+<body class="club_list">
+  <!--container start-->
+  <div class="container">
+    <!--header section start-->
+    <header>
+      <div class="wrapper">
+        <h1 class="epl_logo">
+          <a href="home.html" title="EPL Football Info">
+            <img src="assets/image/logo.png" alt="EPL Football Info">
+          </a>
+        </h1>
+
+        <!-- Navigation Bar Start -->
+        <nav class="navigation">
+          <ul>
+            <li class="rest">
+              <a href="home.html" title="Home">home</a>
+            </li>
+            <li class="current">
+              <a href="clubs.html" title="Clubs List">clubs list</a>
+            </li>
+            <li class="rest">
+              <a href="match.html" title="Match Details">match details</a>
+            </li>
+            <li class="logout_container">
+              <button class="logout">logout</button>
+            </li>
+          </ul>
+        </nav>
+        <!-- Navigation Bar End -->
+
+        <!-- To Add Hamburger Icon in Mobile View (Start) -->
+        <div class="humburger">
+          <div class="menu_btn">
+            <div class="menu_btn_hamburger">hamburger</div>
+          </div>
+        </div>
+        <!-- To Add Hamburger Icon in Mobile View (End) -->
+      </div>
+    </header>
+    <!--header section start-->
+    <!--main section start-->
+    <main>
+      <!-- Team Result Section (Start) -->
+      <section class="team_result">
+        <div class="wrapper">
+          <form action="#FIXME">
+            <select class="team_dropdown">
+              <option disabled selected>Select the Team which you want to check</option>
+            </select>
+          </form>
+          <div class="team_performance">
+            team performance
+          </div>
+          <button class="show_more">Show More</button>
+        </div>
+      </section>
+      <!-- Team Result Section (End) -->
+    </main>
+    <!--main section end-->
+
+    <!--footer section start-->
+    <footer>      
+      <!-- First Layer of Footer (Start) -->
+      <section class="footer_firstlayer">
+        <div class="wrapper">
+          <h1 class="epl_logo_footer">
+            <a href="home.html" title="EPL Football Info">
+              <img src="assets/image/logo.png" alt="EPL Football Info">
+            </a>
+          </h1>
+
+          <!-- Footer Navigation Bar Start -->
+          <nav class="navigation_footer">
+            <ul>
+              <li class="rest">
+                <a href="home.html" title="Home">home</a>
+              </li>
+              <li class="current">
+                <a href="clubs.html" title="Clubs List">clubs list</a>
+              </li>
+              <li class="rest">
+                <a href="match.html" title="Match Details">match details</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Footer Navigation Bar End -->
+
+          <ul class="social_media_handles">
+            <li><a href="#FIXME" target="_blank" class="facebook">facebook</a></li>
+            <li><a href="#FIXME" target="_blank" class="twitter">twitter</a></li>
+            <li><a href="#FIXME" target="_blank" class="youtube">youtube</a></li>
+            <li><a href="#FIXME" target="_blank" class="instagram">instagram</a></li>
+          </ul>
+        </div>
+      </section>
+      <!-- First Layer of Footer (End) -->
+
+      <!-- Second Layer of Footer (Start) -->
+      <section class="footer_secondlayer">
+        <div class="wrapper">
+          <span class="copyrights">Copyrights &copy; All rights reserved.</span>
+        </div>
+      </section>
+      <!-- Second Layer of Footer (End) -->
+
+    </footer>
+    <!--footer section end-->
+
+  </div>
+  <!--container end-->
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
