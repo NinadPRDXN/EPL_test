@@ -466,6 +466,10 @@ select:focus {
   outline: none;
 }
 
+.team_result h2, .match_rounds h2 {
+  display: none;
+}
+
 .club_list .container, .match_details .container {
   height: 100vh;
   display: flex;
@@ -565,11 +569,15 @@ select {
   footer styling starts here
 =================================*/ 
 
-.footer_firstlayer {
+footer {
   background-color: var(--black);
 }
 
-.footer_firstlayer .wrapper {
+footer h2::before {
+  content: none;
+}
+
+.footer_firstlayer {
   padding: 1.5% 0;
   display: flex;
   align-items: center;
@@ -651,7 +659,6 @@ select {
 
 .footer_secondlayer {
   padding: 1% 0;
-  margin-top: .1rem;
   background-color: var(--black);
   color: var(--green);
   font-size: 1.1rem;
@@ -663,8 +670,8 @@ select {
 =================================*/ 
 
 /*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
+/*media query for 1024px starts here*/
+@media only screen and (max-width: 1024px) {
 
   html {
     font-size: 50%;
@@ -674,6 +681,10 @@ select {
 
 /*media query for 680px starts here*/
 @media only screen and (max-width: 680px) {
+
+  .wrapper {
+    width: 90%;
+  }
 
   .authentication .wrapper {
     width: 80%;
@@ -773,11 +784,16 @@ select {
     font-size: 1.5rem;
   }
 
+  .team_result form, .match_rounds form {
+    margin-top: 3rem;
+    text-align: left;
+  }
+
   .club_list_teams li:last-child, .match_details_teams li:last-child  {
     display: none;
   }
 
-  .footer_firstlayer .wrapper {
+  .footer_firstlayer {
     flex-direction: column;
   }
 
@@ -839,4 +855,13 @@ select {
 
   /*Disable All Hover Effect (End)*/
 
+}
+
+/*media query for 280px starts here*/
+@media only screen and (max-width: 280px) {
+
+  form select {
+    width: 85%;
+    font-size: 1.2rem;
+  }
 }

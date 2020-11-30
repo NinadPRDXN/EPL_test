@@ -63,23 +63,32 @@ if (clubList.length > 0) {
     teamPerformance = document.querySelector('.team_performance'),
     showPerformance = document.querySelector('.show_more');
 
-    //Fetch All Clubs Name
-    clubNames = new XMLHttpRequest();
-    clubNames.open('GET', 'https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json');
-    clubNames.send();
-    clubNames.onload = function() {
-        apiData = JSON.parse(clubNames.responseText);
-        var clubs = apiData.clubs;
-        clubs.forEach( function(item) {
-            teamDropdown.innerHTML += 
-            "<option>" + item.name + "</option>";
-        });
-    }
-
-    //Fetching Details of Matches
+    //Fetching Details of Matches and Create dropdown according to that
     ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json');
-    ourRequest.onload = function() { apiData = JSON.parse(ourRequest.responseText); }
+    ourRequest.onload = function() {
+        apiData = JSON.parse(ourRequest.responseText);
+        var 
+        matches = apiData.matches,
+        teamNames = [];
+
+        matches.forEach(function(item) {
+            teamNames.push(item.team1);
+            teamNames.push(item.team2);
+        });
+
+        var teamNamesRefined = teamNames.filter(onlyUnique);
+
+        function onlyUnique(value, index, self) {
+            return self.indexOf(value) === index;
+        }
+
+        teamNamesRefined.forEach( function(item) {
+            teamDropdown.innerHTML += 
+            "<option>" + item + "</option>";
+        });
+
+    }
     ourRequest.send();
 
     clubList.onload = checking();
@@ -89,11 +98,34 @@ if (clubList.length > 0) {
         var
         url_string = window.location.href,
         url = new URL(url_string),
-        c = url.searchParams.get("teamname");
-        if (c != null) {
+        urlParameter = url.search;
+        refiningPhase1 = urlParameter.replace("?teamname=", "");
+        refiningPhase2 = refiningPhase1.replace(/%20/g, " ");
+        refinedUrlPara = refiningPhase2.replace(/&amp;/g, "&");
+        if (refinedUrlPara.length > 0) {
             //Loading Details of Matches
             ourRequest.onload = function() {
                 apiData = JSON.parse(ourRequest.responseText);
+
+                var 
+                matches = apiData.matches,
+                teamNames = [];
+
+                matches.forEach(function(item) {
+                    teamNames.push(item.team1);
+                    teamNames.push(item.team2);
+                });
+
+                var teamNamesRefined = teamNames.filter(onlyUnique);
+
+                function onlyUnique(value, index, self) {
+                    return self.indexOf(value) === index;
+                }
+
+                teamNamesRefined.forEach( function(item) {
+                    teamDropdown.innerHTML += 
+                    "<option>" + item + "</option>";
+                });
 
                 var
                 teamDropdownSelected = teamDropdown.options,
@@ -101,10 +133,10 @@ if (clubList.length > 0) {
 
                 //To Display after it is redirected from Match Details Page
                 for(var i = 0; i < teamDropdownLength; i++) {
-                    if ( c == teamDropdownSelected[i].firstChild.data) {
+                    if ( refinedUrlPara == teamDropdownSelected[i].firstChild.data) {
                         teamDropdown.selectedIndex = i;
                         var
-                            teamDropdownSelected = c,
+                            teamDropdownSelected = refinedUrlPara,
                             matches = apiData.matches,
                             teamMatches = [];
 
@@ -133,11 +165,12 @@ if (clubList.length > 0) {
     //After Selecting the dropdown
     teamDropdown.onchange = function() {
         var 
-        teamDropdownSelected = teamDropdown.options[teamDropdown.selectedIndex].innerHTML,
+        teamDropdownStr = teamDropdown.options[teamDropdown.selectedIndex].innerHTML,
         matches = apiData.matches,
         teamMatches = [];
 
         teamPerformance.className = 'team_performance_display';
+        teamDropdownSelected = teamDropdownStr.replace("&amp;", "&");
 
         matches.forEach( function(item) {
             if ( item.team1 == teamDropdownSelected || item.team2 == teamDropdownSelected ) {
@@ -147,14 +180,9 @@ if (clubList.length > 0) {
 
         teamPerformance.innerHTML = "";
 
-        if (teamMatches.length != 0) {
-            showPerformance.classList.add('show_more_display');
-            for ( var i = 0; i < 5; i++) {
-                teamPerformance.innerHTML +="<ul class='club_list_teams'><li>" + teamMatches[i].team1 + "</li><li>" + teamMatches[i].score1 + "-" + teamMatches[i].score2 + "</li><li>" + teamMatches[i].team2 + "</li><li>Date: " + teamMatches[i].date + "</li></ul>";
-            }
-        }
-        else {
-            teamPerformance.innerHTML = "<span class='not_found'>Not Found</span>";
+        showPerformance.classList.add('show_more_display');
+        for ( var i = 0; i < 5; i++) {
+            teamPerformance.innerHTML +="<ul class='club_list_teams'><li>" + teamMatches[i].team1 + "</li><li>" + teamMatches[i].score1 + "-" + teamMatches[i].score2 + "</li><li>" + teamMatches[i].team2 + "</li><li>Date: " + teamMatches[i].date + "</li></ul>";
         }
     }
 
@@ -162,10 +190,12 @@ if (clubList.length > 0) {
     showPerformance.onclick = function() {
         var
         displayedTeam = document.querySelectorAll('.club_list_teams').length,
-        teamDropdownSelected = teamDropdown.options[teamDropdown.selectedIndex].innerHTML,
+        teamDropdownStr = teamDropdown.options[teamDropdown.selectedIndex].innerHTML,
         matches = apiData.matches,
         teamMatches = [],
         limit = displayedTeam + 5;
+
+        teamDropdownSelected = teamDropdownStr.replace("&amp;", "&");
         
         matches.forEach( function(item) {
             if ( item.team1 == teamDropdownSelected || item.team2 == teamDropdownSelected ) {
@@ -224,7 +254,6 @@ if (matchDetails.length > 0) {
             "<option>" + item + "</option>";
         });
     }
-    ourRequest.onerror = function() { console.log("Connection error"); }
     ourRequest.send();
 
     matchDropdown.onchange = function() {
