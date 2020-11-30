@@ -10,7 +10,6 @@ logout = document.querySelector('.logout'),
 loc = document.location.pathname,
 dir = loc.substring(0, loc.lastIndexOf('/'));
 
-
 //Js Script for Login(index) page
 if (login.length > 0) {
     
