@@ -720,6 +720,12 @@ footer h2:hover {
   text-indent: -9999rem;
 }
 
+@-moz-document url-prefix() {
+  .social_media_handles li a {
+    margin-right: 4rem;
+  }
+}
+
 .facebook::before, .twitter::before, .instagram::before, .youtube::before {
   border: .1rem solid var(--green);
   border-radius: 50%;
