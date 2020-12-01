@@ -1,6 +1,7 @@
 /* Author: 
     Ninad Parkar
 */
+
 var
 login = document.querySelectorAll('.login'), //For Index Page
 home = document.querySelectorAll('.home'), //For Home Page
@@ -9,6 +10,7 @@ matchDetails = document.querySelectorAll('.match_details'), //For Match Details 
 logout = document.querySelector('.logout'),
 loc = document.location.pathname,
 dir = loc.substring(0, loc.lastIndexOf('/'));
+
 
 //Js Script for Login(index) page
 if (login.length > 0) {
@@ -95,8 +97,8 @@ if (clubList.length > 0) {
     function checking() {
         loadingIndex();
         var
-        url_string = window.location.href,
-        url = new URL(url_string),
+        urlThread = window.location.href,
+        url = new URL(urlThread),
         urlParameter = url.search;
         refiningPhase1 = urlParameter.replace("?teamname=", "");
         refiningPhase2 = refiningPhase1.replace(/%20/g, " ");
@@ -267,7 +269,7 @@ if (matchDetails.length > 0) {
         matches.forEach( function(item) {
             if ( item.round == matchDropdownSelected ) {
                 listOfMatches.innerHTML +=
-                "<ul class='match_details_teams'><li class='team_name' onclick='transfer(this)'>" + item.team1 + "</li><li>" + item.score.ft[0] + "-" + item.score.ft[1] + "</li><li class='team_name' onclick='transfer(this)'>" + item.team2 + "</li><li>Date: " + item.date + "</li></ul>"; 
+                "<ul class='match_details_teams'><li title='" + item.team1 + "' class='team_name' onclick='transfer(this)'>" + item.team1 + "</li><li>" + item.score.ft[0] + "-" + item.score.ft[1] + "</li><li title='" + item.team2 + "' class='team_name' onclick='transfer(this)'>" + item.team2 + "</li><li>Date: " + item.date + "</li></ul>"; 
             }
         });
     }
