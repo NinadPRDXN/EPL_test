@@ -106,7 +106,6 @@ li {
 /*=================================
   Header styling starts here
 =================================*/
-
 @font-face {
   src: url('../vendor/NerkoOne-Regular.ttf');
   font-family: nerko;
@@ -282,7 +281,6 @@ h1:hover {
   -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
-
 /*=================================
   Header styling ends here
 =================================*/  
@@ -563,7 +561,6 @@ select:focus {
   display: none;
   background-color: var(--green);
   font-family: nerko, "san-serif";
-  text-transform: capitalize;
 }
 
 .show_more_display {
@@ -718,12 +715,6 @@ footer h2:hover {
 .social_media_handles li a {
   font-size: 2rem;
   text-indent: -9999rem;
-}
-
-@-moz-document url-prefix() {
-  .social_media_handles li a {
-    margin-right: 4rem;
-  }
 }
 
 .facebook::before, .twitter::before, .instagram::before, .youtube::before {
@@ -985,12 +976,6 @@ footer h2:hover {
 
   .team_name:hover {
     text-decoration: unset;
-  }
-
-  footer h2:hover {
-    -webkit-transform: unset;
-    -ms-transform: unset;
-    transform: unset;
   }
 
   .navigation_footer a:hover {

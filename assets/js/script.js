@@ -33,7 +33,7 @@ if (login.length > 0) {
 
         var
         userName = document.querySelector('.user_name input'),
-        password = document.querySelector('.user_name input'),
+        password = document.querySelector('.password input'),
         errorMsg = document.querySelector('.error_msg');
 
         if (userName.value == "admin" && password.value == "admin") {
@@ -67,6 +67,7 @@ if (clubList.length > 0) {
     //Fetching Details of Matches and Create dropdown according to that
     ourRequest = new XMLHttpRequest();
     ourRequest.open('GET', 'https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.json');
+    
     ourRequest.onload = function() {
         apiData = JSON.parse(ourRequest.responseText);
         var 
@@ -269,7 +270,7 @@ if (matchDetails.length > 0) {
         matches.forEach( function(item) {
             if ( item.round == matchDropdownSelected ) {
                 listOfMatches.innerHTML +=
-                "<ul class='match_details_teams'><li title='" + item.team1 + "' class='team_name' onclick='transfer(this)'>" + item.team1 + "</li><li>" + item.score.ft[0] + "-" + item.score.ft[1] + "</li><li title='" + item.team2 + "' class='team_name' onclick='transfer(this)'>" + item.team2 + "</li><li>Date: " + item.date + "</li></ul>"; 
+                "<ul class='match_details_teams'><li class='team_name' onclick='transfer(this)'>" + item.team1 + "</li><li>" + item.score.ft[0] + "-" + item.score.ft[1] + "</li><li class='team_name' onclick='transfer(this)'>" + item.team2 + "</li><li>Date: " + item.date + "</li></ul>"; 
             }
         });
     }
