@@ -3,5 +3,5 @@ prdxn-dev-framework
 
 PRDXN's "starting package" used for development.
 
-UserName: admin,
+UserName: admin
 Password: admin
